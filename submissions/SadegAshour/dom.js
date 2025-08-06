@@ -1,8 +1,8 @@
 console.log("here");
 console.log(document.body);
-console.log(document.body.lastElementChild.tagName);
+console.log(document.body.lastElementChild.tagName);// here log the script tag
 
-console.log(`number of element children ${document.body.children.length}`);
+console.log(`number of element children ${document.body.children.length}`);//
 
 const differ = document.body.childNodes.length - document.body.children.length;
 console.log(`difference in length between childNodes and children ${differ}`);
@@ -10,9 +10,10 @@ console.log(`difference in length between childNodes and children ${differ}`);
 
 //What is the nodeType and nodeName of the first node in document.body.childNodes?
 var firstNode = document.body.childNodes[0];
-console.log(`first node name: ${firstNode.nodeName}`);
-console.log(`first node type: ${firstNode.nodeType}`);
 
+console.log(`first node name: ${firstNode.nodeName}`);// here log just the name of node like text
+console.log(`first node type: ${firstNode.nodeType}`);// here log the code of the type that if we see in Node object that we have many type ELEMENT_NODE: 1; ATTRIBUTE_NODE: 2; TEXT_NODE: 3; and so on 
+   
 //Is the first paragraph a sibling of the second, or a descendant?
 // sibling
 
