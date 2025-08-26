@@ -15,7 +15,8 @@ console.log(`first node name: ${firstNode.nodeName}`); // here log just the name
 console.log(`first node type: ${firstNode.nodeType}`); // here log the code of the type that if we see in Node object that we have many type ELEMENT_NODE: 1; ATTRIBUTE_NODE: 2; TEXT_NODE: 3; and so on
 
 //Is the first paragraph a sibling of the second, or a descendant?
-// sibling
+// sibling <= i mention here
+console.log("sibling");
 
 console.log(document.body.childNodes);
 
@@ -24,7 +25,7 @@ console.log(document.body.childNodes);
 
 document.body.childNodes.forEach(function (node) {
   if (node.nodeType == 3) {
-    console.log(`here unexpected node element ${node.nodeName}`);
+    console.log(node);
   }
 });
 
@@ -32,10 +33,11 @@ document.body.childNodes.forEach(function (node) {
 
 var element = document.createElement("div");
 element.className = "card";
-element.setAttribute("data-role", "admin");
+// here done
+element.dataset.role = "admin";
+
 var h2 = document.createElement("h2");
 h2.textContent = "Access Panel";
-
 var p = document.createElement("p");
 p.textContent = "Authenticated";
 
@@ -44,15 +46,19 @@ document.body.appendChild(element);
 //Log the value of the data-role as a JS property, not via `.getAttribute`.
 console.log(element.dataset["role"]);
 
-const paragraph = document.getElementsByTagName("p");
-paragraph[1].textContent = "Welcome back, Admin;";
+// i think you mean that we should use like this
+const paragraph = document.body.children[1].children[0].children[0];
+
+paragraph.textContent = "Welcome back, Admin;";
 
 //Add two classes to the div: "authenticated" and "highlight" using `classList`
 element.classList.add("authenticated");
 element.classList.add("highlight");
 
 console.log(element.classList.contains("card")); //to verify that "card" still exists
-element.classList.remove("card");
+if (element.classList.contains("card")) {
+  element.classList.remove("card");
+}
 console.log(element.classList.contains("card")); //to verify that "card" removed
 
 // Extra Section -------------
